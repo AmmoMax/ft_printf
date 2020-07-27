@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_flags.c                                    :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amayor <amayor@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/24 20:38:12 by amayor            #+#    #+#             */
-/*   Updated: 2020/07/24 20:38:12 by amayor           ###   ########.fr       */
+/*   Created: 2020/05/13 21:34:44 by amayor            #+#    #+#             */
+/*   Updated: 2020/05/23 21:46:15 by amayor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-t_flags		ft_init_flags(void)
+int		ft_tolower(int c)
 {
-	t_flags	flags;
-
-	flags.zero = 0;
-	flags.minus = 0;
-	flags.dot = -1;
-	flags.width = 0;
-	flags.spec = 0;
-	flags.asterisk = 0;
-	return (flags);
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
 }

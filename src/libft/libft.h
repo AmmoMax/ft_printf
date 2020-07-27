@@ -6,7 +6,7 @@
 /*   By: amayor <amayor@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 22:00:12 by amayor            #+#    #+#             */
-/*   Updated: 2020/07/24 22:46:30 by amayor           ###   ########.fr       */
+/*   Updated: 2020/07/27 21:09:31 by amayor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,10 @@ void	ft_putnbr(int n);
 char	*ft_strdup(const char *s);
 size_t	ft_strlen(const char *s);
 int		ft_isdigit(int c);
+int		ft_putchar(char c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+void	ft_putstr_len(char *s, int len);
+char	*ft_itoa(int n);
+int		ft_tolower(int c);
 
 #endif

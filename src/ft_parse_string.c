@@ -26,8 +26,9 @@ size_t		ft_parse_string(char *s, va_list ap)
 		if (s[i] == '%' && str[i + 1])
 		{
 			i++;
-			i = ft_isflag(str, i, &flags, ap);
-
+			i = ft_check_flag(str, i, &flags, ap);
+			if (ft_isspec(str[i]))
+				count += ft_parser_spec((char)flags.type, flags, ap);
 		}
 		else if (s[i] == '%' && s[i + 1] == '%')
 		{

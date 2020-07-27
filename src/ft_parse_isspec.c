@@ -12,33 +12,6 @@
 
 #include "ft_printf.h"
 
-int					ft_check_spec(char * str, int i,t_flags *flags, va_list ap)
-{
-	char			c_type;
-	char			*s_type;
-	unsigned int	u_type;
-
-	if (c == 'c')
-	{
-		c_type = va_arg(ap, int);
-		write(1, &c_type, 1);
-		return (1);
-	}
-	if (c == 's')
-	{
-		s_type = va_arg(ap, char *);
-		ft_putstr(s_type);
-		return (1);
-	}
-	if (c == 'u')
-	{
-		u_type = va_arg(ap, unsigned int);
-		ft_putstr(ft_itoa_base(u_type, 10));
-		return (1);
-	}
-	return (0);
-}
-
 int	ft_isspec(int c)
 {
 	return ((c == 'c') || (c == 's') || (c == 'i') || (c == 'd') ||
@@ -56,7 +29,59 @@ int	ft_check_flag(char *str, int i, t_flags *flags, va_list ap)
 	{
 		if (!ft_isdigit(str[i]) && !ft_isspec(str[i]) && !ft_isflag(str[i]))
 			break;
+		if (str[i] == '-')
+			*flags = ft_parser_minus(*flags);
 		if (str[i] == '0' && flags->width == 0 && flags->minus == 0)
 			flags->zero = 1;
+		if (str[i] == '.')
+			i = ft_parser_dot(str, i, flags, ap);
+		if (str[i] = '*')
+			*flags = ft_parser_width(*flags, ap);
+		if (ft_isdigit(str[i]))
+			*flags = ft_parser_digit(str[i], *flags);
+		if (ft_isspecp(str[i]))
+		{
+			flags->spec = str[i];
+			break ;
+		}
+		i++;
 	}
+	return (i);
+}
+
+int	ft_print_percent(t_flags flags)
+{
+	int	count;
+
+	count = 0;
+	if (flags.minus == 1)
+		count += ft_putchar('%');
+	count += ft_utils_print_width(flags.width, 1, flags.zero);
+	if (flags.minus == 0)
+		count += ft_putchar('%');
+	return (count);
+}
+
+int	ft_parser_spec(int c, t_flags flags, va_list ap)
+{
+	int count;
+
+	count = 0;
+	if (c == 'c')
+		count += ft_parser_char(va_arg(ap, int), flags);
+	else if (c == 's')
+		count += ft_parser_str(va_arg(ap, char *), flags);
+	else if (c == 'd' || c == 'i')
+		count += ft_parser_int(va_arg(ap, int), flags);
+	else if (c == 'p')
+		count += ft_parser_pointer(va_arg(ap, unsigned long long int), flags);
+	else if (c =='x')
+		count += ft_parser_hex(va_arg(ap, unsigned int), 1, flags);
+	else if (c == 'X')
+		count += ft_parser_hex(va_arg(ap, unsigned int), 0, flags);
+	else if (c == 'u')
+		count += ft_parser_unsigned(va_arg(ap, unsigned int), flags);
+	else if (c == '%')
+		count += ft_print_percent(flags);
+	return (count);
 }

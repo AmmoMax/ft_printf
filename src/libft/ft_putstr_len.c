@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_flags.c                                    :+:      :+:    :+:   */
+/*   ft_putstr_len.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amayor <amayor@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/24 20:38:12 by amayor            #+#    #+#             */
-/*   Updated: 2020/07/24 20:38:12 by amayor           ###   ########.fr       */
+/*   Created: 2020/07/27 15:56:17 by amayor            #+#    #+#             */
+/*   Updated: 2020/07/27 15:56:17 by amayor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-t_flags		ft_init_flags(void)
+void		ft_putstr_len(char *s, int len)
 {
-	t_flags	flags;
+	size_t	i;
 
-	flags.zero = 0;
-	flags.minus = 0;
-	flags.dot = -1;
-	flags.width = 0;
-	flags.spec = 0;
-	flags.asterisk = 0;
-	return (flags);
+	i = 0;
+	if(s != NULL)
+		while (s[i] && i < len)
+			ft_putchar(s[i++]);
+		return (i);
 }
