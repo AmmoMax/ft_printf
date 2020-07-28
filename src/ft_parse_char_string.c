@@ -35,8 +35,8 @@ int	ft_parser_str(char *str, t_flags flags)
 	if(!str)
 		str = "(null)";
 	len = ft_strlen(str);
-	substr = ft_substr(str, 0, len);
-	if (flags.dot >= 0 && (int)flags.dot > len)
+	substr = ft_substr(str, 0, len); // почему не strdup?
+	if (flags.dot >= 0 && (int)flags.dot > len) // посмотреть вывод оригинального printf
 		flags.dot = len;
 	if (flags.minus == 1)
 		count += ft_utils_print_str(substr, flags, len);

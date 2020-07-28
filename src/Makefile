@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-.PHONY: all clean fclean re
+# .PHONY: all clean fclean re
 
 NAME = libftprintf.a
 COMPILER = clang
@@ -18,17 +18,17 @@ ARCHIVER = ar rc
 LIBFT_FILE = libft.a
 LIBFT_DIR = libft
 RANLIB  = ranlib
-SRCS_FILES = 	ft_init_flags.c \
-				ft_parse_char_string.c \
-				ft_parse_flags.c \
-				ft_parse_hex.c \ 
-				ft_parse_int.c \
-				ft_parse_isspec.c \
-				ft_parse_pointer.c \
-				ft_parse_string.c \
-				ft_parse_unsigned.c \
-				ft_printf.c \
-				ft_utils.c
+SRCS_FILES = ft_init_flags.c\
+			ft_parse_char_string.c\
+			ft_parse_flags.c\
+			ft_parse_hex.c\
+			ft_parse_int.c\
+			ft_parse_isspec.c\
+			ft_parse_pointer.c\
+			ft_parse_string.c\
+			ft_parse_unsigned.c\
+			ft_printf.c\
+			ft_utils.c
 HEADER_FILE = ft_printf.h
 HEADER_FILE_DIR = .
 FLAGS = -c -Wall -Wextra -Werror

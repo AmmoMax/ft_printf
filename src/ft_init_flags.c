@@ -21,6 +21,6 @@ t_flags		ft_init_flags(void)
 	flags.dot = -1;
 	flags.width = 0;
 	flags.spec = 0;
-	flags.asterisk = 0;
+	flags.star = 0;
 	return (flags);
 }

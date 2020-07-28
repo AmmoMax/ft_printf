@@ -40,15 +40,15 @@ t_flags		ft_parser_width(t_flags flags, va_list ap)
 	flags.star = 1;
 	flags.width = va_arg(ap, int);
 	if (flags.width < 0)
-		flags.minus = -1;
+		flags.minus = -1; //непонятно зачем минус
 	return (flags);
 }
 
 t_flags		ft_parser_digit(char c, t_flags flags)
 {
 	if (flags.star == 1)
-		flags.width = 0;
-	flags.width = (flags.width * 10) + (c - '0');
+		flags.width = 0; // UB стандартного printf в случае "%*9s"
+	flags.width = (flags.width * 10) + (c - '0'); //кастомное поведение в случае UB стандартной функции
 	return (flags);
 }
 
