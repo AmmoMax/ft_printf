@@ -6,7 +6,7 @@
 /*   By: amayor <amayor@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 22:14:04 by amayor            #+#    #+#             */
-/*   Updated: 2020/07/23 22:14:04 by amayor           ###   ########.fr       */
+/*   Updated: 2020/07/29 20:58:02 by amayor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int			length_number(unsigned long long number, int base)
 	size_t			len;
 
 	len = 0;
-	while(number !=0)
+	while (number != 0)
 	{
 		number = number / base;
 		len++;
@@ -42,7 +42,7 @@ char				*ft_itoa_base(unsigned long long number, int base)
 	if (!(result = (char *)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	result[len] = '\0';
-	while (len !=0)
+	while (len != 0)
 	{
 		result[len - 1] = code[number % base];
 		number = number / base;

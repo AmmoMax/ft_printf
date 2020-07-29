@@ -6,7 +6,7 @@
 /*   By: amayor <amayor@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 14:40:13 by amayor            #+#    #+#             */
-/*   Updated: 2020/07/27 14:40:13 by amayor           ###   ########.fr       */
+/*   Updated: 2020/07/29 20:25:40 by amayor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		ft_utils_print_width(int width, int len, int zero)
 	int	count;
 
 	count = 0;
-	while(width - len > 0)
+	while (width - len > 0)
 	{
 		if (zero)
 			ft_putchar('0');
@@ -36,7 +36,7 @@ int		ft_utils_print_str(char *str, t_flags flags, int len)
 	count = 0;
 	if (flags.dot >= 0)
 	{
-		count += ft_utils_print_width(flags.dot, len, 0); // флаг 0 не работает со строкой, печатаем пробелы
+		count += ft_utils_print_width(flags.dot, len, 0);
 		count += ft_putstr_len(str, flags.dot);
 	}
 	else
@@ -58,7 +58,7 @@ int		ft_utils_print_int(char *substr, int tmp, t_flags flags, size_t len)
 	}
 	else if (flags.dot >= 0)
 	{
-		count += ft_utils_print_width(flags.dot - 1, len - 1, 1); // непонятные аргументы, зачем так?
+		count += ft_utils_print_width(flags.dot - 1, len - 1, 1);
 		count += ft_putstr_len(substr, len);
 	}
 	else

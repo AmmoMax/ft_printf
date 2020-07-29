@@ -6,17 +6,17 @@
 /*   By: amayor <amayor@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 18:33:57 by amayor            #+#    #+#             */
-/*   Updated: 2020/07/21 18:33:57 by amayor           ###   ########.fr       */
+/*   Updated: 2020/07/29 20:35:25 by amayor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *s, ...)
+int			ft_printf(const char *s, ...)
 {
-	va_list ap;
-	int	count;
-	char *str;
+	va_list	ap;
+	int		count;
+	char	*str;
 
 	count = 0;
 	if (!(str = ft_strdup(s)))

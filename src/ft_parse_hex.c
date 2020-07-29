@@ -6,7 +6,7 @@
 /*   By: amayor <amayor@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 21:43:03 by amayor            #+#    #+#             */
-/*   Updated: 2020/07/27 21:43:03 by amayor           ###   ########.fr       */
+/*   Updated: 2020/07/29 20:43:19 by amayor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ static int	check_flags_hex(char *hex, t_flags flags)
 	return (count);
 }
 
- int		ft_parser_hex(unsigned int number, int flag, t_flags flags)
- {
-	 char	*hex;
-	 int	count;
+int			ft_parser_hex(unsigned int number, int flag, t_flags flags)
+{
+	char	*hex;
+	int		count;
 
 	count = 0;
 	if (flags.dot == 0 && number == 0)
@@ -52,4 +52,4 @@ static int	check_flags_hex(char *hex, t_flags flags)
 	count += check_flags_hex(hex, flags);
 	free(hex);
 	return (count);
- }
+}

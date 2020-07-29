@@ -6,7 +6,7 @@
 /*   By: amayor <amayor@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 22:43:53 by amayor            #+#    #+#             */
-/*   Updated: 2020/07/27 22:43:53 by amayor           ###   ########.fr       */
+/*   Updated: 2020/07/29 20:37:49 by amayor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ static int	check_flags(char *num_str, t_flags flags)
 		count += print_unsigned(num_str, flags, len);
 	return (count);
 }
-
 
 int			ft_parser_unsigned(unsigned int num, t_flags flags)
 {

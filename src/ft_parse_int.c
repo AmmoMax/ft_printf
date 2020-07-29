@@ -6,7 +6,7 @@
 /*   By: amayor <amayor@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 16:09:32 by amayor            #+#    #+#             */
-/*   Updated: 2020/07/27 16:09:32 by amayor           ###   ########.fr       */
+/*   Updated: 2020/07/29 20:41:18 by amayor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	check_min(char **num_str, int tmp, t_flags flags)
 	int		count;
 
 	count = 0;
-	if (tmp == -2147483648 && flags.zero == 1 && flags.dot == -1)
+	if (tmp == -2147483648 && flags.zero == 1 && flags.dot < 0)
 		count += check_flags_int(*num_str + 1, tmp, flags);
 	else
 		count += check_flags_int(*num_str, tmp, flags);
@@ -67,7 +67,7 @@ int			ft_parser_int(int n, t_flags flags)
 	}
 	if (n < 0 && (flags.dot >= 0 || flags.zero == 1))
 	{
-		if (flags.zero == 1 && flags.dot == -1)
+		if (flags.zero == 1 && flags.dot < 0)
 			ft_putchar('-');
 		n *= -1;
 		flags.zero = 1;

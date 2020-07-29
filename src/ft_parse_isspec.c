@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspec.c                                        :+:      :+:    :+:   */
+/*   ft_parse_isspec.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amayor <amayor@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 14:52:56 by amayor            #+#    #+#             */
-/*   Updated: 2020/07/24 14:52:56 by amayor           ###   ########.fr       */
+/*   Updated: 2020/07/29 20:40:56 by amayor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_isspec(int c)
 		(c == 'x') || (c == 'X') || (c == 'u') || (c == 'p') || (c == '%'));
 }
 
-int ft_isflag(int c)
+int	ft_isflag(int c)
 {
 	return ((c == '-') || (c == '*') || (c == '.') || (c == '0') || (c == ' '));
 }
@@ -28,7 +28,7 @@ int	ft_check_flag(char *str, int i, t_flags *flags, va_list ap)
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]) && !ft_isspec(str[i]) && !ft_isflag(str[i]))
-			break;
+			break ;
 		if (str[i] == '-')
 			*flags = ft_parser_minus(*flags);
 		if (str[i] == '0' && flags->width == 0 && flags->minus == 0)
@@ -75,7 +75,7 @@ int	ft_parser_spec(int c, t_flags flags, va_list ap)
 		count += ft_parser_int(va_arg(ap, int), flags);
 	else if (c == 'p')
 		count += ft_parser_pointer(va_arg(ap, unsigned long long int), flags);
-	else if (c =='x')
+	else if (c == 'x')
 		count += ft_parser_hex(va_arg(ap, unsigned int), 1, flags);
 	else if (c == 'X')
 		count += ft_parser_hex(va_arg(ap, unsigned int), 0, flags);

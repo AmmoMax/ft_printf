@@ -6,18 +6,18 @@
 /*   By: amayor <amayor@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 14:11:03 by amayor            #+#    #+#             */
-/*   Updated: 2020/07/27 14:11:03 by amayor           ###   ########.fr       */
+/*   Updated: 2020/07/29 20:52:06 by amayor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_parser_char(char c, t_flags flags)
+int			ft_parser_char(char c, t_flags flags)
 {
-	int count;
+	int		count;
 
 	count = 0;
-	if(flags.minus == 1)
+	if (flags.minus == 1)
 		ft_putchar(c);
 	count = ft_utils_print_width(flags.width, 1, 0);
 	if (flags.minus == 0)
@@ -25,18 +25,18 @@ int	ft_parser_char(char c, t_flags flags)
 	return (count + 1);
 }
 
-int	ft_parser_str(char *str, t_flags flags)
+int			ft_parser_str(char *str, t_flags flags)
 {
-	int count;
-	int len;
-	char *substr;
+	int		count;
+	int		len;
+	char	*substr;
 
 	count = 0;
-	if(!str)
+	if (!str)
 		str = "(null)";
 	len = ft_strlen(str);
-	substr = ft_substr(str, 0, len); // почему не strdup?
-	if (flags.dot >= 0 && (int)flags.dot > len) // посмотреть вывод оригинального printf
+	substr = ft_strdup(str);
+	if (flags.dot >= 0 && (int)flags.dot > len)
 		flags.dot = len;
 	if (flags.minus == 1)
 		count += ft_utils_print_str(substr, flags, len);

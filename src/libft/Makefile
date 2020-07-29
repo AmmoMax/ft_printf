@@ -21,12 +21,10 @@ SRCS_FILES = 	ft_isalpha.c \
 				ft_itoa.c \
 				ft_itoa_base.c \
 				ft_putchar.c \
-				ft_putnbr.c \
 				ft_putstr.c \
 				ft_putstr_len.c \
 				ft_strdup.c \
 				ft_strlen.c \
-				ft_substr.c \
 				ft_tolower.c
 HEADER_FILE = libft.h
 HEADER_FILE_DIR = .

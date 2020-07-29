@@ -6,13 +6,11 @@
 /*   By: amayor <amayor@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 17:52:16 by amayor            #+#    #+#             */
-/*   Updated: 2020/07/27 17:52:16 by amayor           ###   ########.fr       */
+/*   Updated: 2020/07/29 20:39:06 by amayor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-
 
 int			ft_parser_pointer(unsigned long long n, t_flags flags)
 {
@@ -47,7 +45,7 @@ char		*ft_str_tolower(char *str)
 	int		i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		str[i] = ft_tolower(str[i]);
 		i++;
