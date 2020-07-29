@@ -28,6 +28,11 @@ static int	check_flags_int(char *num_str, int tmp, t_flags flags)
 		flags.width -= flags.dot;
 		count += ft_utils_print_width(flags.width, 0, 0);
 	}
+	else if (flags.zero == 1 && flags.minus == 1)
+	{
+		flags.zero = 0;
+		count += ft_utils_print_width(flags.width, len, flags.zero);
+	}
 	else
 		count += ft_utils_print_width(flags.width, len, flags.zero);
 	if (flags.minus == 0)
