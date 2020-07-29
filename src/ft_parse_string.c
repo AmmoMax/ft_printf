@@ -31,13 +31,10 @@ size_t		ft_parse_string(char *s, va_list ap)
 				count += ft_parser_spec((char)flags.spec, flags, ap);
 		}
 		else if (s[i] == '%' && s[i + 1] == '%')
-		{
-			write(1, "%", 1);
-			i++;
-		}
+			count += ft_putchar(s[i]);
 		else
-			write(1, &s[i], 1);
+			count += ft_putchar(s[i]);
 		i++;
 	}
-	return (i);
+	return (count);
 }
