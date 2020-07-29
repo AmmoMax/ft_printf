@@ -35,19 +35,21 @@ static int	check_flags_hex(char *hex, t_flags flags)
 	return (count);
 }
 
- int		ft_parser_hex(unsigned int number, inf flag, t_flags s_flags)
+ int		ft_parser_hex(unsigned int number, int flag, t_flags flags)
  {
 	 char	*hex;
 	 int	count;
 
 	count = 0;
-	if (flags.dot == 0 && n == 0)
+	if (flags.dot == 0 && number == 0)
 	{
 		count += ft_utils_print_width(flags.width, 0, 0);
 		return (count);
 	}
-	hex = ft_itoa_base((unsigned long long)n, 16);
+	hex = ft_itoa_base((unsigned long long)number, 16);
 	if (flag == 1)
 		hex = ft_str_tolower(hex);
-	count += check_flags_hex(char *hex, t_flags flags);
+	count += check_flags_hex(hex, flags);
+	free(hex);
+	return (count);
  }

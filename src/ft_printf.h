@@ -6,7 +6,7 @@
 /*   By: amayor <amayor@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 22:23:17 by amayor            #+#    #+#             */
-/*   Updated: 2020/07/28 22:55:24 by amayor           ###   ########.fr       */
+/*   Updated: 2020/07/29 10:41:41 by amayor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int			ft_parser_int(int n, t_flags flags);
 int			ft_parser_pointer(unsigned long long n, t_flags flags);
 int			ft_parser_hex(unsigned int number, int flag, t_flags s_flags);
 int			ft_parser_unsigned(unsigned int num, t_flags flags);
-char		ft_str_tolower(char *str);
+char		*ft_str_tolower(char *str);
 int			ft_utils_print_addr(char *addr, t_flags s_flags, size_t len);
 int			ft_print_percent(t_flags flags);
 

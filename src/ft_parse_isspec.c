@@ -20,7 +20,7 @@ int	ft_isspec(int c)
 
 int ft_isflag(int c)
 {
-	return ((c == '-') || (c == '*') || (c == '.') || (c == '0') || (c == ' '))
+	return ((c == '-') || (c == '*') || (c == '.') || (c == '0') || (c == ' '));
 }
 
 int	ft_check_flag(char *str, int i, t_flags *flags, va_list ap)
@@ -35,11 +35,11 @@ int	ft_check_flag(char *str, int i, t_flags *flags, va_list ap)
 			flags->zero = 1;
 		if (str[i] == '.')
 			i = ft_parser_dot(str, i, flags, ap);
-		if (str[i] = '*')
+		if (str[i] == '*')
 			*flags = ft_parser_width(*flags, ap);
 		if (ft_isdigit(str[i]))
 			*flags = ft_parser_digit(str[i], *flags);
-		if (ft_isspecp(str[i]))
+		if (ft_isspec(str[i]))
 		{
 			flags->spec = str[i];
 			break ;

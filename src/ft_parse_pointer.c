@@ -42,9 +42,9 @@ int			ft_parser_pointer(unsigned long long n, t_flags flags)
 	return (count);
 }
 
-char		ft_str_tolower(char *str)
+char		*ft_str_tolower(char *str)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while(str[i])

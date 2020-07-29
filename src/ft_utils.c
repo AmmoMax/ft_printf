@@ -57,7 +57,7 @@ int		ft_utils_print_int(char *substr, int tmp, t_flags flags, size_t len)
 	return (count);
 }
 
-int		ft_utils_print_addr(char *addr, t_flags s_flags, size_t len)
+int		ft_utils_print_addr(char *addr, t_flags flags, size_t len)
 {
 	int	count;
 
@@ -66,7 +66,7 @@ int		ft_utils_print_addr(char *addr, t_flags s_flags, size_t len)
 	if (flags.dot >= 0)
 	{
 		count += ft_utils_print_width(flags.dot, len, 1);
-		count += ft_putstr_len(adr, flags.dot);
+		count += ft_putstr_len(addr, flags.dot);
 	}
 	else
 		count += ft_putstr_len(addr, len);

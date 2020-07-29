@@ -15,8 +15,8 @@
 NAME = libftprintf.a
 COMPILER = clang
 ARCHIVER = ar rc
-LIBFT_FILE = libft.a
 LIBFT_DIR = libft
+LIBFT_PATH = libft/libft.a
 RANLIB  = ranlib
 SRCS_FILES = ft_init_flags.c\
 			ft_parse_char_string.c\
@@ -40,7 +40,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ_ALL) $(HEADER_FILE)
 	$(MAKE) -C $(LIBFT_DIR)
-	cp $(LIBFT_FILE) $(NAME)
+	cp $(LIBFT_PATH) $(NAME)
 	@$(ARCHIVER) $(NAME) $(OBJ_ALL)
 	@$(RANLIB) $(NAME)
 	@echo "[INFO] Library [$(NAME)] is created!"

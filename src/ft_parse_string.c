@@ -23,11 +23,11 @@ size_t		ft_parse_string(char *s, va_list ap)
 	while (s[i])
 	{
 		flags = ft_init_flags();
-		if (s[i] == '%' && str[i + 1])
+		if (s[i] == '%' && s[i + 1])
 		{
 			i++;
-			i = ft_check_flag(str, i, &flags, ap);
-			if (ft_isspec(str[i]))
+			i = ft_check_flag(s, i, &flags, ap);
+			if (ft_isspec(s[i]))
 				count += ft_parser_spec((char)flags.spec, flags, ap);
 		}
 		else if (s[i] == '%' && s[i + 1] == '%')

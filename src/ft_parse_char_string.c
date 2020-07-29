@@ -18,7 +18,7 @@ int	ft_parser_char(char c, t_flags flags)
 
 	count = 0;
 	if(flags.minus == 1)
-		ft_putstr(c);
+		ft_putchar(c);
 	count = ft_utils_print_width(flags.width, 1, 0);
 	if (flags.minus == 0)
 		ft_putchar(c);

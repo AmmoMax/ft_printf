@@ -12,20 +12,14 @@
 
 #include "ft_printf.h"
 
-int			ft_parser_unsigned(unsigned int num, t_flags flags)
+static int	print_unsigned(char *num_str, t_flags flags, size_t len)
 {
 	int		count;
-	char	*num_str;
 
 	count = 0;
-	if (flags.dot == 0 && n == 0)
-	{
-		count += ft_utils_print_width(flags.width, 0, 0);
-		return (count);
-	}
-	num_str = ft_itoa_base(num, 10);
-	count += check_flags(num_str, flags);
-	free(num_str);
+	if (flags.dot >= 0)
+		count += ft_utils_print_width(flags.dot - 1, len - 1, 1);
+	count += ft_putstr_len(num_str, len);
 	return (count);
 }
 
@@ -52,13 +46,20 @@ static int	check_flags(char *num_str, t_flags flags)
 	return (count);
 }
 
-static int	print_unsigned(char *num_str, t_flags flags, size_t)
+
+int			ft_parser_unsigned(unsigned int num, t_flags flags)
 {
 	int		count;
+	char	*num_str;
 
 	count = 0;
-	if (flags.dot >= 0)
-		count += ft_utils_print_width(flags.dot - 1, len - 1, 1);
-	count += ft_putstr_len(num_str, len);
+	if (flags.dot == 0 && num == 0)
+	{
+		count += ft_utils_print_width(flags.width, 0, 0);
+		return (count);
+	}
+	num_str = ft_itoa_base(num, 10);
+	count += check_flags(num_str, flags);
+	free(num_str);
 	return (count);
 }
