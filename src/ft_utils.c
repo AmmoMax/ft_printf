@@ -51,9 +51,18 @@ int		ft_utils_print_int(char *substr, int tmp, t_flags flags, size_t len)
 	count = 0;
 	if (tmp < 0 && flags.dot >= 0)
 		ft_putchar('-');
-	if (flags.dot >= 0)
+	if (tmp == -2147483648 && flags.dot >= 0)
+	{
+		count += ft_utils_print_width(flags.dot - 1, len - 1, 1);
+		count += ft_putstr_len(substr + 1, len);
+	}
+	else if (flags.dot >= 0)
+	{
 		count += ft_utils_print_width(flags.dot - 1, len - 1, 1); // непонятные аргументы, зачем так?
-	count += ft_putstr_len(substr, len);
+		count += ft_putstr_len(substr, len);
+	}
+	else
+		count += ft_putstr_len(substr, len);
 	return (count);
 }
 

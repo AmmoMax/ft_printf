@@ -40,7 +40,10 @@ t_flags		ft_parser_width(t_flags flags, va_list ap)
 	flags.star = 1;
 	flags.width = va_arg(ap, int);
 	if (flags.width < 0)
-		flags.minus = -1; //непонятно зачем минус
+	{
+		flags.minus = 1;
+		flags.width *= -1;
+	}
 	return (flags);
 }
 
