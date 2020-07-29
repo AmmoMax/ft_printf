@@ -14,7 +14,7 @@
 
 int		ft_putstr_len(char *s, int len)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	if(s != NULL)
