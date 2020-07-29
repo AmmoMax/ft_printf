@@ -12,9 +12,6 @@
 
 #include "ft_printf.h"
 
-#include <stdio.h>
-
-// s = "Hello %s! The deadline is in %u days.\n";
 int	ft_printf(const char *s, ...)
 {
 	va_list ap;
@@ -29,14 +26,4 @@ int	ft_printf(const char *s, ...)
 	va_end(ap);
 	free(str);
 	return (count);
-}
-
-
-int main()
-{
-	char c;
-	c = 'A';
-	unsigned int nbr = 123;
-	ft_printf("Hello %c %s %%3 %c %s %u.\n", c, "Max", 'B', "Alex", nbr);
-	return (0);
 }
